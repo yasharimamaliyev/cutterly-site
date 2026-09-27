@@ -1,7 +1,9 @@
 # cutterlyai.com
 
 Cutterly-nin saytı — statik HTML, build yoxdur. GitHub Pages `main` branch-dən
-birbaşa yayımlayır; quraşdırıcı (`Cutterly.dmg`) bu repo-nun Releases-indədir.
+birbaşa yayımlayır; quraşdırıcı saytın özündədir: `download/Cutterly.dmg`
+→ `https://cutterlyai.com/download/Cutterly.dmg`. Müştəri heç yerdə GitHub-a
+yönləndirilmir (montajçının qərarı, 2026-09-27).
 
 ## Harada nə dəyişir
 
@@ -25,14 +27,12 @@ qırıq link olsa, düşür.
 ## Yeni versiya buraxmaq
 
 ```bash
-cp Cutterly-1.0.7.dmg Cutterly.dmg
-gh release create v1.0.7 Cutterly.dmg Cutterly-1.0.7.dmg \
-  --repo yasharimamaliyev/cutterly-site --title "Cutterly 1.0.7" --notes "…"
+cp ../multicam-public/dist/Cutterly-1.0.8.dmg download/Cutterly.dmg
 ```
 
-Sonra `assets/config.js`-də `version`-u dəyiş. Yükləmə linki
-(`…/releases/latest/download/Cutterly.dmg`) həmişə ən son buraxılışı verir —
-onu dəyişmək lazım deyil.
+Sonra `assets/config.js`-də `version`-u dəyiş, `node scripts/check.mjs`,
+commit və push. Link (`downloadUrl`) dəyişmir. Köhnə versiyalar saytda
+saxlanmır; lazım olsa `multicam-public/dist/`-dədir.
 
 ## Domen
 
