@@ -12,7 +12,7 @@ window.CUTTERLY = {
   // Shown next to the download button. The file is served from this site
   // (download/Cutterly.dmg), never from the code host: customers should not
   // land on the repository. A release replaces that file and bumps this.
-  version: "1.0.7",
+  version: "1.0.8",
   downloadUrl: "https://cutterlyai.com/download/Cutterly.dmg",
 
   supportEmail: "support@cutterlyai.com",
