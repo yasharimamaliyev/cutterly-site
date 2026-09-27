@@ -96,6 +96,15 @@ if (!/^https:\/\//.test(C.downloadUrl || "")) fail("config: downloadUrl must be 
 if (!/^\d+\.\d+\.\d+$/.test(C.version || "")) fail("config: version must look like 1.0.6");
 if (!/@/.test(C.supportEmail || "")) fail("config: supportEmail missing");
 
+// 6. Cache-busting ───────────────────────────────────────────────────────
+// Browsers kept serving the previous config.js after a release (Safari
+// showed 1.0.6 next to the 1.0.7 file), so every page loads the shared
+// scripts with ?v=<version>. A release that bumps the version must bump these.
+for (const f of html)
+  for (const m of read(f).matchAll(/assets\/(config|i18n|site)\.js(\?v=[^"]*)?"/g))
+    if (m[2] !== `?v=${C.version}`)
+      fail(`${f.replace(ROOT + "/", "")}: assets/${m[1]}.js must load with ?v=${C.version}`);
+
 if (errors.length) {
   console.error(errors.map((e) => "✗ " + e).join("\n"));
   console.error(`\n${errors.length} problem(s).`);

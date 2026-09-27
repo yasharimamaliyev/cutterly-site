@@ -30,7 +30,8 @@ qırıq link olsa, düşür.
 cp ../multicam-public/dist/Cutterly-1.0.8.dmg download/Cutterly.dmg
 ```
 
-Sonra `assets/config.js`-də `version`-u dəyiş, `node scripts/check.mjs`,
+Sonra `assets/config.js`-də `version`-u və bütün səhifələrdəki `?v=` rəqəmini
+dəyiş (`node scripts/check.mjs` unudulanı göstərir),
 commit və push. Link (`downloadUrl`) dəyişmir. Köhnə versiyalar saytda
 saxlanmır; lazım olsa `multicam-public/dist/`-dədir.
 
