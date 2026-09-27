@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="dl.title">Download Cutterly for macOS</title>
+<meta name="description" data-i18n-attr="content:dl.desc" content="Download the Cutterly panel for Adobe Premiere Pro on macOS, with install steps.">
+<meta name="theme-color" content="#0e0f13">
+<link rel="canonical" href="https://cutterlyai.com/download/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.classList.add("js-i18n");setTimeout(function(){document.documentElement.classList.add("i18n-ready")},1200);</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="logo-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f93ff"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#logo-a)"/><rect x="6" y="10" width="10" height="5" rx="1.6" fill="#fff"/><rect x="17.5" y="17" width="8.5" height="5" rx="1.6" fill="#fff" fill-opacity=".8"/><path d="M16.75 6.5v19" stroke="#fff" stroke-opacity=".55" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <span>Cutterly</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#features" data-i18n="nav.features">Features</a>
+      <a href="../#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="./" aria-current="page" data-i18n="nav.download">Download</a>
+      <a href="../contact/" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="az" aria-pressed="false">AZ</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <h1 data-i18n="dl.h1">Download Cutterly</h1>
+      <p class="lead" data-i18n="dl.lead">The Cutterly panel for Adobe Premiere Pro on macOS.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="wrap">
+      <div class="card download-card">
+        <div class="dl-meta">
+          <b><span data-i18n="dl.version">Version</span> <span data-site="version"></span> · macOS</b>
+          <a data-site-href="releasesUrl" href="#" data-i18n="dl.notes">Release notes and earlier versions</a>
+        </div>
+        <a class="btn btn-primary btn-lg" data-site-href="downloadUrl" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          <span data-i18n="dl.button">Download Cutterly.dmg</span>
+        </a>
+      </div>
+
+      <p class="callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5h.01"/></svg>
+        <span data-i18n="dl.quit">Before installing, quit Premiere Pro with ⌘Q — the panel loads only when Premiere starts.</span>
+      </p>
+
+      <h2 data-i18n="dl.install">Install</h2>
+      <ol class="numbered">
+        <li><span data-i18n="dl.s1">Open <b>Cutterly.dmg</b>.</span></li>
+        <li><span data-i18n="dl.s2">Double-click <b>Install Cutterly.pkg</b> and go through the installer to the end.</span></li>
+        <li><span data-i18n="dl.s3">Open Premiere Pro and choose <b>Window → Extensions → Cutterly</b>.</span></li>
+        <li><span data-i18n="dl.s4">In the <b>Account</b> tab (👤), paste your subscription key and press <b>Connect</b>. Your plan and the hours left this month appear.</span></li>
+      </ol>
+
+      <h2 data-i18n="dl.block.h">If macOS won't open the installer</h2>
+      <p class="text" data-i18n="dl.block.p">Cutterly is not signed with an Apple Developer ID yet, so macOS may say <b>“Install Cutterly.pkg” Not Opened</b>. That is expected for now — open it one of these two ways.</p>
+      <div class="ways">
+        <div class="card">
+          <h3 data-i18n="dl.way1">Through System Settings</h3>
+          <ol class="numbered">
+            <li><span data-i18n="dl.w1.1">Click <b>Done</b> in that window.</span></li>
+            <li><span data-i18n="dl.w1.2">Open <b>System Settings → Privacy &amp; Security</b> and scroll down to <b>Security</b>.</span></li>
+            <li><span data-i18n="dl.w1.3">Next to the message about Install Cutterly.pkg, click <b>Open Anyway</b> and enter your Mac password.</span></li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3 data-i18n="dl.way2">Through Terminal</h3>
+          <p class="muted" data-i18n="dl.w2.p">With Cutterly.dmg open, paste this into Terminal and enter your Mac password:</p>
+          <div class="code">
+            <code id="cmd-install">sudo installer -pkg "/Volumes/Cutterly/Install Cutterly.pkg" -target /</code>
+            <button type="button" class="copy" data-copy="cmd-install" data-i18n="ui.copy">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <h2 data-i18n="dl.update.h">Updating</h2>
+      <p class="text" data-i18n="dl.update.p">When a new version is out, the panel shows a bar at the top with an <b>Update</b> button that brings you here. Quit Premiere Pro before installing — the new installer replaces the old panel by itself.</p>
+
+      <h2 data-i18n="dl.uninst.h">Uninstalling</h2>
+      <p class="text" data-i18n="dl.uninst.p">Run this in Terminal:</p>
+      <div class="code" style="max-width:760px">
+        <code id="cmd-uninstall">sudo "/Library/Application Support/Cutterly/uninstall.sh"</code>
+        <button type="button" class="copy" data-copy="cmd-uninstall" data-i18n="ui.copy">Copy</button>
+      </div>
+
+      <p class="text" style="margin-top:48px" data-i18n="dl.help">Stuck? Write to <a data-site-href="mailto" href="../contact/"><span data-site="supportEmail">support@cutterlyai.com</span></a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="logo-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f93ff"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#logo-b)"/><rect x="6" y="10" width="10" height="5" rx="1.6" fill="#fff"/><rect x="17.5" y="17" width="8.5" height="5" rx="1.6" fill="#fff" fill-opacity=".8"/><path d="M16.75 6.5v19" stroke="#fff" stroke-opacity=".55" stroke-width="1.4" stroke-linecap="round"/></svg><span>Cutterly</span></a>
+        <p data-i18n="foot.tagline">Multicam podcast editing for Adobe Premiere Pro on macOS.</p>
+      </div>
+      <div>
+        <p class="foot-title" data-i18n="foot.product">Product</p>
+        <a href="../#features" data-i18n="nav.features">Features</a>
+        <a href="../#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="./" data-i18n="nav.download">Download</a>
+      </div>
+      <div>
+        <p class="foot-title" data-i18n="foot.support">Support</p>
+        <a href="../contact/" data-i18n="nav.contact">Contact</a>
+        <a data-site-href="mailto" href="../contact/"><span data-site="supportEmail">support@cutterlyai.com</span></a>
+      </div>
+      <div>
+        <p class="foot-title" data-i18n="foot.legal">Legal</p>
+        <a href="../terms/" data-i18n="foot.terms">Terms of Service</a>
+        <a href="../privacy/" data-i18n="foot.privacy">Privacy Policy</a>
+        <a href="../refund/" data-i18n="foot.refund">Refund Policy</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Cutterly</span>
+      <span data-i18n="foot.adobe">Adobe and Premiere Pro are either registered trademarks or trademarks of Adobe in the United States and/or other countries. Cutterly is an independent product and is not affiliated with Adobe.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/i18n.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
