@@ -11,7 +11,7 @@ birbaşa yayımlayır; quraşdırıcı (`Cutterly.dmg`) bu repo-nun Releases-ind
 | İngiliscə mətn | səhifənin öz HTML-i (`index.html`, `download/`, `contact/`) |
 | Azərbaycanca və rusca mətn | `assets/i18n.js` (açar HTML-dəki `data-i18n` ilə eynidir) |
 | Terms / Privacy / Refund | `terms/`, `privacy/`, `refund/` — yalnız ingiliscə |
-| Görünüş | `assets/style.css` |
+| Görünüş | `assets/style.css`, şriftlər `assets/fonts/`, loqo `assets/brand/` |
 
 Hər dəyişiklikdən sonra:
 
