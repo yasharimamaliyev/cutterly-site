@@ -6,7 +6,8 @@
 //   2. a price is written into a page or a dictionary instead of config.js;
 //   3. a supplier or model name reaches the site (the customer never sees them);
 //   4. a relative link or asset points at a file that does not exist;
-//   5. config.js lost a plan field or the download link is not https.
+//   5. config.js lost a plan field, or the download / chat link is not https;
+//   6. a shared script (config, i18n, site, chat) loads without ?v=<version>.
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join, dirname, relative, resolve } from "node:path";
 import vm from "node:vm";
@@ -95,13 +96,15 @@ for (const [id, plan] of Object.entries(C.plans || {})) {
 if (!/^https:\/\//.test(C.downloadUrl || "")) fail("config: downloadUrl must be https");
 if (!/^\d+\.\d+\.\d+$/.test(C.version || "")) fail("config: version must look like 1.0.6");
 if (!/@/.test(C.supportEmail || "")) fail("config: supportEmail missing");
+if (C.chatEndpoint && !/^https:\/\//.test(C.chatEndpoint)) fail("config: chatEndpoint must be https");
+if (C.telegramBot && !/^@?\w{5,32}$/.test(C.telegramBot)) fail("config: telegramBot must be a bot username");
 
 // 6. Cache-busting ───────────────────────────────────────────────────────
 // Browsers kept serving the previous config.js after a release (Safari
 // showed 1.0.6 next to the 1.0.7 file), so every page loads the shared
 // scripts with ?v=<version>. A release that bumps the version must bump these.
 for (const f of html)
-  for (const m of read(f).matchAll(/assets\/(config|i18n|site)\.js(\?v=[^"]*)?"/g))
+  for (const m of read(f).matchAll(/assets\/(config|i18n|site|chat)\.js(\?v=[^"]*)?"/g))
     if (m[2] !== `?v=${C.version}`)
       fail(`${f.replace(ROOT + "/", "")}: assets/${m[1]}.js must load with ?v=${C.version}`);
 

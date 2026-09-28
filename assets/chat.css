@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Cutterly chat widget — sits on top of style.css (uses its tokens).
+   Markup is built by chat.js; this file only styles it.
+   Desktop: 60px launcher bottom-right, 384px panel above it.
+   Phone (≤ 520px wide): the open panel fills the screen.
+   ========================================================================== */
+
+.cw { position: fixed; right: 24px; bottom: 24px; z-index: 60; font-family: var(--font); color: var(--text); }
+.cw *, .cw *::before, .cw *::after { box-sizing: border-box; }
+.cw [hidden] { display: none !important; }
+.cw-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------- Launcher ---------- */
+.cw-launcher {
+  position: relative; display: grid; place-items: center; width: 60px; height: 60px; margin-left: auto;
+  padding: 0; border: 0; border-radius: 50%; cursor: pointer; overflow: hidden;
+  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 55%, #2563eb 100%);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .08) inset;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.cw-launcher:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -8px rgba(0, 0, 0, .75), 0 0 0 1px rgba(255, 255, 255, .14) inset; }
+.cw-launcher:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.cw-launcher img { width: 100%; height: 100%; display: block; }
+.cw-launcher .cw-x { position: absolute; inset: 0; display: grid; place-items: center; background: #20232b; color: var(--text); }
+.cw-launcher .cw-x svg { width: 22px; height: 22px; }
+.cw[data-open="true"] .cw-launcher { box-shadow: 0 8px 24px -8px rgba(0, 0, 0, .6), 0 0 0 1px var(--line-2) inset; }
+
+/* ---------- Panel ---------- */
+.cw-panel {
+  position: absolute; right: 0; bottom: 76px; width: 384px; height: min(640px, calc(100vh - 124px));
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--bg); border: 1px solid var(--line-2); border-radius: 18px;
+  box-shadow: 0 32px 64px -16px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .02) inset;
+  transform-origin: bottom right; animation: cw-in .2s ease-out;
+}
+@keyframes cw-in { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
+
+.cw-head { display: flex; align-items: center; gap: 12px; padding: 14px 12px 14px 16px; border-bottom: 1px solid var(--line); background: var(--surface); flex: none; }
+.cw-avatar { width: 36px; height: 36px; border-radius: 10px; flex: none; display: block; }
+.cw-title { display: flex; flex-direction: column; min-width: 0; flex: 1; gap: 2px; }
+.cw-title b { font-size: 15.5px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
+.cw-status { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--text-2); line-height: 1.3; }
+/* online dot: blue, not green — green means "kept take" in the product */
+.cw-status i { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 3px rgba(79, 147, 255, .2); animation: cw-pulse 2.4s ease-in-out infinite; flex: none; }
+@keyframes cw-pulse { 50% { box-shadow: 0 0 0 5px rgba(79, 147, 255, .06); } }
+.cw-close { width: 40px; height: 40px; display: grid; place-items: center; flex: none; border: 0; border-radius: 10px; background: none; color: var(--text-2); cursor: pointer; }
+.cw-close:hover { background: var(--surface-2); color: var(--text); }
+.cw-close svg { width: 20px; height: 20px; }
+
+/* ---------- Log ---------- */
+.cw-log { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 18px 16px 8px; display: flex; flex-direction: column; gap: 14px; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+.cw-msg { display: flex; flex-direction: column; gap: 6px; max-width: 88%; }
+.cw-msg--ai { align-self: flex-start; }
+.cw-msg--me { align-self: flex-end; align-items: flex-end; }
+.cw-who { font: 500 11.5px/1.3 var(--mono); color: var(--muted); padding-left: 2px; }
+.cw-bubble { padding: 11px 14px; border-radius: 16px; font-size: 14.5px; line-height: 1.55; white-space: pre-line; overflow-wrap: anywhere; }
+.cw-msg--ai .cw-bubble { background: var(--surface-2); border: 1px solid var(--line); border-top-left-radius: 6px; color: var(--text); }
+.cw-msg--me .cw-bubble { background: var(--blue); color: var(--blue-ink); border-bottom-right-radius: 6px; font-weight: 500; }
+
+/* quick questions (first open only) */
+.cw-chips { display: flex; flex-wrap: wrap; gap: 8px; padding-left: 2px; }
+.cw-chip {
+  min-height: 38px; padding: 8px 14px; border-radius: 999px; cursor: pointer; text-align: left;
+  font: 500 13.5px/1.3 var(--font); color: var(--text); background: transparent; border: 1px solid var(--line-2);
+  transition: background-color .15s, border-color .15s;
+}
+.cw-chip:hover { background: var(--surface-2); border-color: rgba(79, 147, 255, .5); }
+
+/* actions under an answer */
+.cw-cta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+.cw-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 38px; padding: 8px 14px;
+  border-radius: 10px; font: 600 13.5px/1.25 var(--font); text-align: center; cursor: pointer;
+  border: 1px solid var(--line-2); background: transparent; color: var(--text);
+}
+.cw-btn:hover { background: var(--surface-2); text-decoration: none; }
+.cw-btn svg { width: 16px; height: 16px; flex: none; }
+.cw-btn--primary { background: var(--blue); border-color: var(--blue); color: var(--blue-ink); }
+.cw-btn--primary:hover { background: #6aa4ff; border-color: #6aa4ff; }
+
+/* typing indicator */
+.cw-typing { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; padding: 10px 14px; border-radius: 16px; border-top-left-radius: 6px; background: var(--surface-2); border: 1px solid var(--line); font-size: 13px; color: var(--text-2); }
+.cw-dots { display: inline-flex; gap: 4px; }
+.cw-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--text-2); animation: cw-dot 1.2s ease-in-out infinite; }
+.cw-dots i:nth-child(2) { animation-delay: .15s; }
+.cw-dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes cw-dot { 0%, 60%, 100% { transform: translateY(0); opacity: .45; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+/* ---------- Composer ---------- */
+.cw-compose { display: flex; align-items: flex-end; gap: 8px; margin: 8px 12px 0; padding: 6px 6px 6px 14px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line-2); flex: none; }
+.cw-compose:focus-within { border-color: rgba(79, 147, 255, .6); box-shadow: 0 0 0 3px rgba(79, 147, 255, .15); }
+.cw-input { flex: 1; min-width: 0; min-height: 40px; max-height: 120px; padding: 9px 0; border: 0; outline: 0; resize: none; background: transparent; color: var(--text); font: 400 15px/1.45 var(--font); }
+.cw-input::placeholder { color: var(--muted); }
+.cw-send { width: 40px; height: 40px; flex: none; display: grid; place-items: center; border: 0; border-radius: 10px; background: var(--blue); color: var(--blue-ink); cursor: pointer; }
+.cw-send:disabled { background: var(--surface-2); color: var(--muted); cursor: default; }
+.cw-send svg { width: 18px; height: 18px; }
+.cw-note { margin: 0; padding: 8px 16px 12px; font-size: 11.5px; line-height: 1.45; color: var(--muted); text-align: center; flex: none; }
+.cw-note a { color: var(--text-2); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---------- Phone: full screen ---------- */
+@container site (max-width: 520px) {
+  .cw { right: 16px; bottom: 16px; }
+  .cw[data-open="true"] { inset: 0; }
+  .cw[data-open="true"] .cw-launcher { display: none; }
+  .cw-panel { position: fixed; inset: 0; width: auto; height: auto; border: 0; border-radius: 0; animation-name: cw-up; padding-bottom: env(safe-area-inset-bottom); }
+  .cw-head { padding: 10px 8px 10px 16px; padding-top: max(10px, env(safe-area-inset-top)); }
+  .cw-close { width: 44px; height: 44px; }
+  .cw-msg { max-width: 92%; }
+  .cw-bubble { font-size: 15px; }
+  .cw-input { font-size: 16px; } /* 16px stops iOS zooming into the field */
+  .cw-send { width: 44px; height: 44px; }
+  .cw-chip, .cw-btn { min-height: 44px; }
+}
+@keyframes cw-up { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+html.cw-lock, html.cw-lock body { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-panel, .cw-status i, .cw-dots i { animation: none; }
+}

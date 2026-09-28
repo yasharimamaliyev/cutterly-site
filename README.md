@@ -14,6 +14,12 @@ yönləndirilmir (montajçının qərarı, 2026-09-27).
 | Azərbaycanca və rusca mətn | `assets/i18n.js` (açar HTML-dəki `data-i18n` ilə eynidir) |
 | Terms / Privacy / Refund | `terms/`, `privacy/`, `refund/` — yalnız ingiliscə |
 | Görünüş | `assets/style.css`, şriftlər `assets/fonts/`, loqo `assets/brand/` |
+| Söhbət vidceti (mətnləri 3 dildə faylın içindədir) | `assets/chat.js`, `assets/chat.css` |
+| Söhbətin serveri, Telegram bot adı | `assets/config.js` → `chatEndpoint`, `telegramBot` |
+
+Söhbətin cavabları `api.cutterlyai.com/site-chat`-dən gəlir (server
+`site_chat.py`, bilik bazası `site_chat_guide.md` — məhsul dəyişəndə orada
+yenilə). `telegramBot` boşdursa «İnsanla danış» e-poçt açır.
 
 Hər dəyişiklikdən sonra:
 
