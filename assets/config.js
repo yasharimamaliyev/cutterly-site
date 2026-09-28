@@ -20,8 +20,8 @@ window.CUTTERLY = {
   // Website chat (assets/chat.js). Empty = the widget offers email instead of answers.
   // POST { lang, messages:[{role,text}] } → { reply }. 500 messages a day for the whole site.
   chatEndpoint: "https://api.cutterlyai.com/site-chat",
-  // Telegram bot username (without @) for "Talk to a person". Empty = email.
-  telegramBot: "",
+  // Telegram bot username (without @) for "Chat with support". Empty = email.
+  telegramBot: "CutterlySupportBot",
 
   // Monthly price in US dollars and hours of analysed audio per month.
   plans: {

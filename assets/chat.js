@@ -5,7 +5,7 @@
  *   <link rel="stylesheet" href="assets/chat.css">      (in <head>, after style.css)
  *   <script src="assets/chat.js"></script>              (end of <body>)
  *
- * "Talk to a person" opens the Telegram bot (config.js telegramBot), or
+ * "Chat with support" opens the Telegram bot (config.js telegramBot), or
  * email while that is empty.
  *
  * Talks to one endpoint, set in config.js:
@@ -36,7 +36,7 @@
       placeholder: "Ask a question…", typing: "typing…", who: "Cutterly · AI", me: "You",
       welcome: "Hi! I answer questions about Cutterly — what it does, pricing, installation. Ask anything, or pick a question below.",
       chips: ["What does it do?", "Pricing", "Does my Premiere version work?", "How do I buy?"],
-      buy: "Buy now", human: "Talk to a person",
+      buy: "Buy now", human: "Chat with support",
       note: "Answers are written by AI and can be wrong.", privacy: "Privacy",
       down: "The assistant is not available right now. Write to us and a person will answer by email.",
       mailSubject: "Question from the website chat", buySubject: "Cutterly subscription",
@@ -47,7 +47,7 @@
       placeholder: "Sualını yaz…", typing: "yazır…", who: "Cutterly · AI", me: "Sən",
       welcome: "Salam! Cutterly haqqında suallara cavab verirəm — nə edir, qiymətlər, quraşdırma. Sualını yaz və ya aşağıdakılardan birini seç.",
       chips: ["Nə edir?", "Qiymətlər", "Premiere versiyam uyğundur?", "Necə alım?"],
-      buy: "İndi al", human: "İnsanla danış",
+      buy: "İndi al", human: "Dəstəklə canlı danış",
       note: "Cavabları AI yazır, səhv ola bilər.", privacy: "Məxfilik",
       down: "Köməkçi hazırda əlçatan deyil. Bizə yaz — insan e-poçtla cavab verəcək.",
       mailSubject: "Saytdakı söhbətdən sual", buySubject: "Cutterly abunəsi",
@@ -58,7 +58,7 @@
       placeholder: "Задайте вопрос…", typing: "печатает…", who: "Cutterly · ИИ", me: "Вы",
       welcome: "Здравствуйте! Отвечаю на вопросы о Cutterly — что он делает, цены, установка. Напишите вопрос или выберите готовый.",
       chips: ["Что он делает?", "Цены", "Подойдёт ли моя версия Premiere?", "Как купить?"],
-      buy: "Купить сейчас", human: "Связаться с человеком",
+      buy: "Купить сейчас", human: "Чат с поддержкой",
       note: "Ответы пишет ИИ, возможны ошибки.", privacy: "Конфиденциальность",
       down: "Помощник сейчас недоступен. Напишите нам — человек ответит по почте.",
       mailSubject: "Вопрос из чата на сайте", buySubject: "Подписка Cutterly",
@@ -68,6 +68,7 @@
   var ICON = {
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
     send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>',
+    chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>',
     mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>',
   };
 
@@ -153,10 +154,10 @@
     var buy = el("a", "cw-btn cw-btn--primary", t("buy"));
     buy.href = mailto(t("buySubject"));
     var human = el("a", "cw-btn");
-    human.innerHTML = ICON.mail;
-    human.appendChild(document.createTextNode(t("human")));
     // A person answers in Telegram once the bot is set in config.js; until then, by email.
     var bot = String(C.telegramBot || "").replace(/^@/, "");
+    human.innerHTML = bot ? ICON.chat : ICON.mail;
+    human.appendChild(document.createTextNode(t("human")));
     if (bot) {
       human.href = "https://t.me/" + encodeURIComponent(bot) + "?start=site";
       human.target = "_blank";
