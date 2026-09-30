@@ -33,7 +33,7 @@ qırıq link olsa, düşür.
 ## Yeni versiya buraxmaq
 
 ```bash
-cp ../multicam-public/dist/Cutterly-1.0.8.dmg download/Cutterly.dmg
+cp ../multicam-public/dist/Cutterly-<versiya>.dmg download/Cutterly.dmg
 ```
 
 Sonra `assets/config.js`-də `version`-u və bütün səhifələrdəki `?v=` rəqəmini
