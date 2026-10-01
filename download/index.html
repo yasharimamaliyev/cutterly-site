@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://cutterlyai.com/download/">
 <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/style.css?v=1.0.10">
 <link rel="stylesheet" href="../assets/chat.css">
 <script>document.documentElement.classList.add("js-i18n");setTimeout(function(){document.documentElement.classList.add("i18n-ready")},1200);</script>
 </head>
@@ -18,7 +18,7 @@
 <header class="site-header">
   <div class="wrap header-row">
     <a class="brand" href="../">
-      <img src="../assets/brand/cutterly-logo.png" alt="Cutterly" width="99" height="32">
+      <img class="logo-on-dark" src="../assets/brand/cutterly-logo.png" alt="Cutterly" width="99" height="32"><img class="logo-on-light" src="../assets/brand/cutterly-logo-light.png" alt="Cutterly" width="99" height="32">
     </a>
     <nav class="nav" aria-label="Main">
       <a href="../#features" data-i18n="nav.features">Features</a>
@@ -34,7 +34,7 @@
   </div>
 </header>
 
-<main>
+<main class="dl" data-os="">
   <section class="page-hero">
     <div class="wrap">
       <h1 data-i18n="dl.h1">Download Cutterly</h1>
@@ -44,93 +44,132 @@
 
   <section class="page">
     <div class="wrap">
-      <div class="plans">
-        <div class="card download-card" data-os-card="mac">
-          <div class="dl-meta">
-            <b><span data-i18n="dl.version">Version</span> <span data-site="version"></span> · macOS</b>
+
+      <div class="platforms">
+        <article class="card platform" data-platform="mac">
+          <div class="platform-top">
+            <span class="os-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.6 2.6c.1 1-.3 2-.9 2.7-.6.8-1.6 1.3-2.6 1.3-.1-1 .3-2 .9-2.7.6-.7 1.7-1.3 2.6-1.3z"/><path d="M19.3 16.9c-.4 1-.6 1.4-1.2 2.3-.8 1.2-1.8 2.7-3.2 2.7-1.2 0-1.5-.8-3.1-.8s-2 .8-3.2.8c-1.4 0-2.3-1.3-3.1-2.5C3.3 16 3 12.2 4.4 10c.9-1.5 2.4-2.4 3.8-2.4 1.4 0 2.3.8 3.5.8 1.1 0 1.8-.8 3.5-.8 1.2 0 2.6.7 3.5 1.9-3.1 1.7-2.6 6.1.6 7.4z"/></svg></span>
+            <div class="platform-name"><b>macOS</b><span><span data-i18n="dl.version">Version</span> <span data-site="version"></span></span></div>
+            <span class="yours" hidden data-i18n="dl.yours">Your system</span>
           </div>
-          <a class="btn btn-primary btn-lg" data-os-btn="mac" data-site-href="downloadUrl" href="#">
+          <a class="btn btn-primary btn-lg" data-site-href="downloadUrl" href="#">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
             <span data-i18n="dl.button">Download Cutterly.dmg</span>
           </a>
-        </div>
-        <div class="card download-card" data-os-card="win">
-          <div class="dl-meta">
-            <b><span data-i18n="dl.version">Version</span> <span data-site="version"></span> · Windows 10/11</b>
+          <p class="platform-req" data-i18n="dl.mac.req">macOS · Premiere Pro 2026</p>
+        </article>
+
+        <article class="card platform" data-platform="win">
+          <div class="platform-top">
+            <span class="os-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.5 5.6l7-1v6.9h-7zM11.5 4.5l9-1.3v8.3h-9zM3.5 12.5h7v6.9l-7-1zM11.5 12.5h9v8.3l-9-1.3z"/></svg></span>
+            <div class="platform-name"><b>Windows 10/11</b><span><span data-i18n="dl.version">Version</span> <span data-site="version"></span></span></div>
+            <span class="yours" hidden data-i18n="dl.yours">Your system</span>
           </div>
-          <a class="btn btn-secondary btn-lg" data-os-btn="win" data-site-href="windowsDownloadUrl" href="#">
+          <a class="btn btn-primary btn-lg" data-site-href="windowsDownloadUrl" href="#">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
-            <span data-i18n="dl.button.win">Download Cutterly-Setup.exe</span>
+            <span data-i18n="dl.win.button">Download Cutterly-Setup.exe</span>
           </a>
+          <p class="platform-req" data-i18n="dl.win.req">Windows 10 or 11 · Premiere Pro 2026</p>
+        </article>
+      </div>
+
+      <div class="dl-after">
+        <p class="callout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5h.01"/></svg>
+          <span data-i18n="dl.quit">Quit Premiere Pro before installing — the panel loads when Premiere starts.</span>
+        </p>
+      </div>
+
+      <div class="install-head">
+        <h2 data-i18n="dl.install">Install</h2>
+        <div class="seg" role="tablist" aria-label="Operating system" hidden>
+          <button type="button" role="tab" id="tab-mac" aria-controls="panel-mac" aria-selected="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.6 2.6c.1 1-.3 2-.9 2.7-.6.8-1.6 1.3-2.6 1.3-.1-1 .3-2 .9-2.7.6-.7 1.7-1.3 2.6-1.3z"/><path d="M19.3 16.9c-.4 1-.6 1.4-1.2 2.3-.8 1.2-1.8 2.7-3.2 2.7-1.2 0-1.5-.8-3.1-.8s-2 .8-3.2.8c-1.4 0-2.3-1.3-3.1-2.5C3.3 16 3 12.2 4.4 10c.9-1.5 2.4-2.4 3.8-2.4 1.4 0 2.3.8 3.5.8 1.1 0 1.8-.8 3.5-.8 1.2 0 2.6.7 3.5 1.9-3.1 1.7-2.6 6.1.6 7.4z"/></svg>macOS</button>
+          <button type="button" role="tab" id="tab-win" aria-controls="panel-win" aria-selected="false" tabindex="-1">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.5 5.6l7-1v6.9h-7zM11.5 4.5l9-1.3v8.3h-9zM3.5 12.5h7v6.9l-7-1zM11.5 12.5h9v8.3l-9-1.3z"/></svg>Windows</button>
         </div>
       </div>
 
-      <p class="callout">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5h.01"/></svg>
-        <span data-i18n="dl.quit">Before installing, quit Premiere Pro — the panel loads only when Premiere starts.</span>
-      </p>
-
-      <h2 data-i18n="dl.mac.h">macOS</h2>
-
-      <h3 data-i18n="dl.install">Install</h3>
-      <ol class="numbered">
-        <li><span data-i18n="dl.s1">Open <b>Cutterly.dmg</b>.</span></li>
-        <li><span data-i18n="dl.s2">Double-click <b>Install Cutterly.pkg</b> and go through the installer to the end.</span></li>
-        <li><span data-i18n="dl.s3">Open Premiere Pro and choose <b>Window → Extensions → Cutterly</b>.</span></li>
-        <li><span data-i18n="dl.s4">In the <b>Account</b> tab (👤), paste your subscription key and press <b>Connect</b>. Your plan and the hours left this month appear.</span></li>
-      </ol>
-
-      <h3 data-i18n="dl.block.h">If macOS won't open the installer</h3>
-      <p class="text" data-i18n="dl.block.p">Cutterly is not signed with an Apple Developer ID yet, so macOS may say <b>“Install Cutterly.pkg” Not Opened</b>. That is expected for now — open it one of these two ways.</p>
-      <div class="ways">
-        <div class="card">
-          <h3 data-i18n="dl.way1">Through System Settings</h3>
-          <ol class="numbered">
-            <li><span data-i18n="dl.w1.1">Click <b>Done</b> in that window.</span></li>
-            <li><span data-i18n="dl.w1.2">Open <b>System Settings → Privacy &amp; Security</b> and scroll down to <b>Security</b>.</span></li>
-            <li><span data-i18n="dl.w1.3">Next to the message about Install Cutterly.pkg, click <b>Open Anyway</b> and enter your Mac password.</span></li>
+      <div role="tabpanel" id="panel-mac" aria-labelledby="tab-mac">
+        <h3 class="tab-label">macOS</h3>
+        <div class="install">
+          <ol class="stepper">
+            <li><span data-i18n="dl.s1">Open <b>Cutterly.dmg</b>.</span></li>
+            <li><span data-i18n="dl.s2">Double-click <b>Install Cutterly.pkg</b> and follow the installer.</span></li>
+            <li><span data-i18n="dl.s3">Open Premiere Pro → <b>Window → Extensions → Cutterly</b>.</span></li>
+            <li><span data-i18n="dl.s4">In the <b>Account</b> tab (👤) paste your subscription key and press <b>Connect</b>.</span></li>
           </ol>
+          <aside class="aside-card">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.4-7 10-4-1.6-7-5.5-7-10V6z"/><path d="M12 8v4M12 15.5h.01"/></svg><span data-i18n="dl.block.h">If macOS won't open the installer</span></h3>
+            <p data-i18n="dl.block.p">That's expected for now: Cutterly isn't signed with an Apple Developer ID yet, so macOS may say <b>“Install Cutterly.pkg” Not Opened</b>. Open it like this:</p>
+            <p class="way-label" data-i18n="dl.way1">Through System Settings</p>
+            <ol class="numbered">
+              <li><span data-i18n="dl.w1.1">Click <b>Done</b> in that window.</span></li>
+              <li><span data-i18n="dl.w1.2">Open <b>System Settings → Privacy &amp; Security</b> and scroll down to <b>Security</b>.</span></li>
+              <li><span data-i18n="dl.w1.3">Next to the message about Install Cutterly.pkg, click <b>Open Anyway</b> and enter your Mac password.</span></li>
+            </ol>
+            <details>
+              <summary data-i18n="dl.way2">Or through Terminal</summary>
+              <p data-i18n="dl.w2.p">With Cutterly.dmg open, paste this into Terminal and enter your Mac password:</p>
+              <div class="code">
+                <code id="cmd-install">sudo installer -pkg "/Volumes/Cutterly/Install Cutterly.pkg" -target /</code>
+                <button type="button" class="copy" data-copy="cmd-install" data-i18n="ui.copy">Copy</button>
+              </div>
+            </details>
+          </aside>
         </div>
-        <div class="card">
-          <h3 data-i18n="dl.way2">Through Terminal</h3>
-          <p class="muted" data-i18n="dl.w2.p">With Cutterly.dmg open, paste this into Terminal and enter your Mac password:</p>
+      </div>
+
+      <div role="tabpanel" id="panel-win" aria-labelledby="tab-win">
+        <h3 class="tab-label">Windows</h3>
+        <div class="install">
+          <ol class="stepper">
+            <li><span data-i18n="dl.ws1">Run <b>Cutterly-Setup.exe</b>.</span></li>
+            <li><span data-i18n="dl.ws2">If a blue <b>Windows protected your PC</b> window appears, click <b>More info</b>, then <b>Run anyway</b>.</span></li>
+            <li><span data-i18n="dl.ws3">In the installer click <b>Next → Install → Finish</b>.</span></li>
+            <li><span data-i18n="dl.s3">Open Premiere Pro → <b>Window → Extensions → Cutterly</b>.</span></li>
+            <li><span data-i18n="dl.s4">In the <b>Account</b> tab (👤) paste your subscription key and press <b>Connect</b>.</span></li>
+          </ol>
+          <aside class="aside-card">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.4-7 10-4-1.6-7-5.5-7-10V6z"/><path d="M12 8v4M12 15.5h.01"/></svg><span data-i18n="dl.win.why.h">The blue window is expected</span></h3>
+            <p data-i18n="dl.win.why.p">Cutterly isn't code-signed yet, so Windows doesn't recognise the installer. Two clicks get you through:</p>
+            <div class="ss" role="img" data-i18n-attr="aria-label:dl.win.illus" aria-label="Windows protected your PC: first click More info, then Run anyway.">
+              <div class="ss-win" aria-hidden="true">
+                <span class="ss-title" data-i18n="dl.wd.title">Windows protected your PC</span>
+                <span class="ss-text"><i></i><i></i><i></i></span>
+                <span class="ss-link ss-hit"><span data-i18n="dl.wd.more">More info</span><span class="ss-num">1</span></span>
+                <span class="ss-btns"><span data-i18n="dl.wd.dont">Don't run</span></span>
+              </div>
+              <div class="ss-win" aria-hidden="true">
+                <span class="ss-title" data-i18n="dl.wd.title">Windows protected your PC</span>
+                <span class="ss-text"><i></i><i></i></span>
+                <span class="ss-app">Cutterly-Setup.exe</span>
+                <span class="ss-btns"><span class="ss-hit"><span data-i18n="dl.wd.run">Run anyway</span><span class="ss-num">2</span></span><span data-i18n="dl.wd.dont">Don't run</span></span>
+              </div>
+            </div>
+            <p class="aside-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-i18n="dl.win.noterm">No Terminal needed on Windows.</span></p>
+          </aside>
+        </div>
+      </div>
+
+      <div class="maint">
+        <article class="card">
+          <h2 data-i18n="dl.update.h">Updating</h2>
+          <p class="text" data-i18n="dl.update.p">When a new version is out, the panel shows an <b>Update</b> bar that brings you here. Quit Premiere Pro, then run the new installer over the old one — the same on macOS and Windows.</p>
+        </article>
+        <article class="card">
+          <h2 data-i18n="dl.uninst.h">Uninstalling</h2>
+          <p class="os-line"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.6 2.6c.1 1-.3 2-.9 2.7-.6.8-1.6 1.3-2.6 1.3-.1-1 .3-2 .9-2.7.6-.7 1.7-1.3 2.6-1.3z"/><path d="M19.3 16.9c-.4 1-.6 1.4-1.2 2.3-.8 1.2-1.8 2.7-3.2 2.7-1.2 0-1.5-.8-3.1-.8s-2 .8-3.2.8c-1.4 0-2.3-1.3-3.1-2.5C3.3 16 3 12.2 4.4 10c.9-1.5 2.4-2.4 3.8-2.4 1.4 0 2.3.8 3.5.8 1.1 0 1.8-.8 3.5-.8 1.2 0 2.6.7 3.5 1.9-3.1 1.7-2.6 6.1.6 7.4z"/></svg><span data-i18n="dl.uninst.mac">macOS — run in Terminal:</span></p>
           <div class="code">
-            <code id="cmd-install">sudo installer -pkg "/Volumes/Cutterly/Install Cutterly.pkg" -target /</code>
-            <button type="button" class="copy" data-copy="cmd-install" data-i18n="ui.copy">Copy</button>
+            <code id="cmd-uninstall">sudo "/Library/Application Support/Cutterly/uninstall.sh"</code>
+            <button type="button" class="copy" data-copy="cmd-uninstall" data-i18n="ui.copy">Copy</button>
           </div>
-        </div>
+          <p class="os-line"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.5 5.6l7-1v6.9h-7zM11.5 4.5l9-1.3v8.3h-9zM3.5 12.5h7v6.9l-7-1zM11.5 12.5h9v8.3l-9-1.3z"/></svg><span>Windows</span></p>
+          <p class="path" data-i18n="dl.uninst.win"><b>Settings</b> → <b>Apps</b> → <b>Installed apps</b> → <b>Cutterly</b> → <b>Uninstall</b></p>
+        </article>
       </div>
 
-      <h3 data-i18n="dl.update.h">Updating</h3>
-      <p class="text" data-i18n="dl.update.p">When a new version is out, the panel shows a bar at the top with an <b>Update</b> button that brings you here. Quit Premiere Pro before installing — the new installer replaces the old panel by itself.</p>
-
-      <h3 data-i18n="dl.uninst.h">Uninstalling</h3>
-      <p class="text" data-i18n="dl.uninst.p">Run this in Terminal:</p>
-      <div class="code" style="max-width:760px">
-        <code id="cmd-uninstall">sudo "/Library/Application Support/Cutterly/uninstall.sh"</code>
-        <button type="button" class="copy" data-copy="cmd-uninstall" data-i18n="ui.copy">Copy</button>
-      </div>
-
-      <h2 data-i18n="dl.win.h">Windows</h2>
-
-      <h3 data-i18n="dl.win.install">Install</h3>
-      <ol class="numbered">
-        <li><span data-i18n="dl.win.s1">Quit Premiere Pro — the installer checks that it is closed.</span></li>
-        <li><span data-i18n="dl.win.s2">Run <b>Cutterly-Setup.exe</b> and go through the installer — <b>Next</b> → … → <b>Finish</b>.</span></li>
-        <li><span data-i18n="dl.s3">Open Premiere Pro and choose <b>Window → Extensions → Cutterly</b>.</span></li>
-        <li><span data-i18n="dl.s4">In the <b>Account</b> tab (👤), paste your subscription key and press <b>Connect</b>. Your plan and the hours left this month appear.</span></li>
-      </ol>
-
-      <h3 data-i18n="dl.win.block.h">If Windows SmartScreen blocks the installer</h3>
-      <p class="text" data-i18n="dl.win.block.p">Cutterly-Setup.exe is not signed with a code-signing certificate yet, so Windows may show <b>“Windows protected your PC”</b>. That is expected for now: click <b>More info</b>, then <b>Run anyway</b>.</p>
-
-      <h3 data-i18n="dl.win.update.h">Updating</h3>
-      <p class="text" data-i18n="dl.win.update.p">When a new version is out, the panel shows a bar at the top with an <b>Update</b> button that brings you here. Quit Premiere Pro, then run the new Cutterly-Setup.exe over the old install.</p>
-
-      <h3 data-i18n="dl.win.uninst.h">Uninstalling</h3>
-      <p class="text" data-i18n="dl.win.uninst.p">Open <b>Settings → Apps → Installed apps</b>, find <b>Cutterly</b> and choose <b>Uninstall</b>. You can also run <b>Uninstall Cutterly.exe</b> in the extension's folder.</p>
-
-      <p class="text" style="margin-top:48px" data-i18n="dl.help">Stuck? Write to <a data-site-href="mailto" href="../contact/"><span data-site="supportEmail">support@cutterlyai.com</span></a>.</p>
+      <p class="dl-help" data-i18n="dl.help">Stuck? Write to <a data-site-href="mailto" href="../contact/"><span data-site="supportEmail">support@cutterlyai.com</span></a> or message us on <a data-site-href="telegramUrl" href="../contact/">Telegram</a>.</p>
     </div>
   </section>
 </main>
@@ -139,7 +178,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="../"><img src="../assets/brand/cutterly-logo.png" alt="Cutterly" width="99" height="32"></a>
+        <a class="brand" href="../"><img class="logo-on-dark" src="../assets/brand/cutterly-logo.png" alt="Cutterly" width="99" height="32"><img class="logo-on-light" src="../assets/brand/cutterly-logo-light.png" alt="Cutterly" width="99" height="32"></a>
         <p data-i18n="foot.tagline">Multicam podcast editing for Adobe Premiere Pro on macOS and Windows.</p>
       </div>
       <div>
@@ -170,6 +209,7 @@
 <script src="../assets/config.js?v=1.0.10"></script>
 <script src="../assets/i18n.js?v=1.0.10"></script>
 <script src="../assets/site.js?v=1.0.10"></script>
+<script src="../assets/download.js?v=1.0.10"></script>
 <script src="../assets/chat.js?v=1.0.10"></script>
 </body>
 </html>
