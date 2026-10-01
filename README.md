@@ -1,9 +1,11 @@
 # cutterlyai.com
 
 Cutterly-nin saytı — statik HTML, build yoxdur. GitHub Pages `main` branch-dən
-birbaşa yayımlayır; quraşdırıcı saytın özündədir: `download/Cutterly.dmg`
-→ `https://cutterlyai.com/download/Cutterly.dmg`. Müştəri heç yerdə GitHub-a
-yönləndirilmir (montajçının qərarı, 2026-09-27).
+birbaşa yayımlayır; quraşdırıcılar saytın özündədir: `download/Cutterly.dmg`
+(macOS) və `download/Cutterly-Setup.exe` (Windows) →
+`https://cutterlyai.com/download/Cutterly.dmg` /
+`https://cutterlyai.com/download/Cutterly-Setup.exe`. Müştəri heç yerdə
+GitHub-a yönləndirilmir (montajçının qərarı, 2026-09-27).
 
 ## Harada nə dəyişir
 
@@ -34,12 +36,13 @@ qırıq link olsa, düşür.
 
 ```bash
 cp ../multicam-public/dist/Cutterly-<versiya>.dmg download/Cutterly.dmg
+cp ../multicam-public/dist/Cutterly-Setup.exe download/Cutterly-Setup.exe
 ```
 
 Sonra `assets/config.js`-də `version`-u və bütün səhifələrdəki `?v=` rəqəmini
 dəyiş (`node scripts/check.mjs` unudulanı göstərir),
-commit və push. Link (`downloadUrl`) dəyişmir. Köhnə versiyalar saytda
-saxlanmır; lazım olsa `multicam-public/dist/`-dədir.
+commit və push. Linklər (`downloadUrl`, `windowsDownloadUrl`) dəyişmir. Köhnə
+versiyalar saytda saxlanmır; lazım olsa `multicam-public/dist/`-dədir.
 
 ## Domen
 

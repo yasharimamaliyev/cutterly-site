@@ -15,6 +15,7 @@
  *   data-site-href="…"              "mailto", "subscribe:<plan>", or a config path such as "downloadUrl"
  *   data-en-only                    hidden while the page is in English (the legal-page notice)
  *   data-copy="elementId"           button that copies that element's text
+ *   data-os-btn="mac"|"win"         download page: the matching OS gets btn-primary, the other btn-secondary
  */
 (function () {
   "use strict";
@@ -180,6 +181,19 @@
     sel.addRange(range);
   }
 
+  // Download page: highlight the button for the visitor's OS, keep both visible.
+  function highlightOsButton() {
+    var buttons = document.querySelectorAll("[data-os-btn]");
+    if (!buttons.length) return;
+    var win = /windows/i.test(navigator.userAgent || "");
+    each("[data-os-btn]", function (btn) {
+      var isMatch = (btn.getAttribute("data-os-btn") === "win") === win;
+      btn.classList.toggle("btn-primary", isMatch);
+      btn.classList.toggle("btn-secondary", !isMatch);
+    });
+  }
+
   apply(initialLang());
+  highlightOsButton();
   document.documentElement.classList.add("i18n-ready");
 })();
